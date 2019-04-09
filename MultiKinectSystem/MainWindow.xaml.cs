@@ -59,7 +59,7 @@ namespace MultiKinectSystem
         {
             InitializeComponent();
             DiscoverKinectSensor();
-            CompositionTarget.Rendering += CompositionTarget_Rendering;
+            CompositionTarget_Rendering();
         }
 
 
@@ -99,29 +99,23 @@ namespace MultiKinectSystem
         // depth image
         private void KinectDevice_DepthFrameReady(object sender, DepthImageFrameReadyEventArgs e)
         {
-            using (DepthImageFrame frame = e.OpenDepthImageFrame())
-            {
+            DepthImageFrame frame = e.OpenDepthImageFrame();
                 if (frame != null)
                 {
-                    short[] pixelData = new short[frame.PixelDataLength];
-                    frame.CopyPixelDataTo(pixelData);
-                    int stride = frame.Width * frame.BytesPerPixel;
-                    DepthImage0.Source = BitmapSource.Create(frame.Width, frame.Height, 96, 96, PixelFormats.Gray16, null, pixelData, stride);
+                    frame.CopyPixelDataTo(_DepthImagePixelData);
+                    _RawDepthImage.WritePixels(_RawDepthImageRect, _DepthImagePixelData, _RawDepthImageStride, 0);
                 }
-            }
+            FramesPerSecondElement.Text = string.Format("{0:0} fps", (this._TotalFrames++ / DateTime.Now.Subtract(this._StartFrameTime).TotalSeconds));
         }
         private void KinectDevice_DepthFrameReady1(object sender, DepthImageFrameReadyEventArgs e)
         {
-            using (DepthImageFrame frame = e.OpenDepthImageFrame())
-            {
+            DepthImageFrame frame = e.OpenDepthImageFrame();
                 if (frame != null)
                 {
-                    short[] pixelData = new short[frame.PixelDataLength];
-                    frame.CopyPixelDataTo(pixelData);
-                    int stride = frame.Width * frame.BytesPerPixel;
-                    DepthImage1.Source = BitmapSource.Create(frame.Width, frame.Height, 96, 96, PixelFormats.Gray16, null, pixelData, stride);
+                    frame.CopyPixelDataTo(_DepthImagePixelData);
+                  _RawDepthImage1.WritePixels(_RawDepthImageRect, _DepthImagePixelData, _RawDepthImageStride, 0);
                 }
-            }
+            FramesPerSecondElement1.Text = string.Format("{0:0} fps", (this._TotalFrames++ / DateTime.Now.Subtract(this._StartFrameTime).TotalSeconds));
         }
 
         private void InitializeRawDepthImage0(DepthImageStream depthStream)
@@ -141,7 +135,7 @@ namespace MultiKinectSystem
                 _DepthImagePixelData = new short[depthStream.FramePixelDataLength];
             }
 
-           // DepthImage.Source = _RawDepthImage;
+           DepthImage0.Source = _RawDepthImage;
         }
 
         private void InitializeRawDepthImage1(DepthImageStream depthStream)
@@ -161,7 +155,7 @@ namespace MultiKinectSystem
                 _DepthImagePixelData1 = new short[depthStream.FramePixelDataLength];
             }
 
-            // DepthImage.Source = _RawDepthImage;
+             DepthImage1.Source = _RawDepthImage1;
         }
 
         private void EnableDepthImage0(KinectSensor PointKinect)
@@ -274,7 +268,7 @@ namespace MultiKinectSystem
             }
         }
 
-        private void CompositionTarget_Rendering(object sender, EventArgs e)
+        private void CompositionTarget_Rendering()
         {
             EnableDepthImage0(KinectDevice);
             EnableDepthImage1(KinectDevice1);
