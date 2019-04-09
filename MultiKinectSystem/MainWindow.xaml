@@ -8,9 +8,8 @@
         Title="MainWindow" Height="2000" Width="2000">
     <Grid>
         <StackPanel Orientation="Horizontal">
-            <Image x:Name="ColorImageElement" Width="640" Height="480"/>
-            <Image x:Name="ColorImageElement1" Width="640" Height="480"/>
-            <Image x:Name="DepthImage" Width="640" Height="480"/>
+            <Image x:Name="DepthImage0" Width="640" Height="480"/>
+            <Image x:Name="DepthImage1" Width="640" Height="480"/>
         </StackPanel>
     </Grid>
 </Window>
