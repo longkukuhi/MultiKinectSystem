@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.489
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiKinectSystem", "MultiKinectSystem\MultiKinectSystem.csproj", "{1545909E-38F3-48F8-9B61-0BCF27766B69}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1545909E-38F3-48F8-9B61-0BCF27766B69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1545909E-38F3-48F8-9B61-0BCF27766B69}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1545909E-38F3-48F8-9B61-0BCF27766B69}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1545909E-38F3-48F8-9B61-0BCF27766B69}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A5140303-E8E7-468A-A6E3-9D3A267A5036}
+	EndGlobalSection
+EndGlobal
