@@ -2,7 +2,6 @@
 # Set default behavior to automatically normalize line endings.
 ###############################################################################
 * text=auto
-
 ###############################################################################
 # Set default behavior for command prompt diff.
 #
@@ -11,7 +10,6 @@
 # Note: This is only used by command line
 ###############################################################################
 #*.cs     diff=csharp
-
 ###############################################################################
 # Set the merge driver for project and solution files
 #
@@ -34,7 +32,6 @@
 #*.modelproj merge=binary
 #*.sqlproj   merge=binary
 #*.wwaproj   merge=binary
-
 ###############################################################################
 # behavior for image files
 #
@@ -43,7 +40,6 @@
 #*.jpg   binary
 #*.png   binary
 #*.gif   binary
-
 ###############################################################################
 # diff behavior for common document formats
 # 
@@ -61,3 +57,12 @@
 #*.PDF   diff=astextplain
 #*.rtf   diff=astextplain
 #*.RTF   diff=astextplain
+tracking filter=lfs diff=lfs merge=lfs -text
+and filter=lfs diff=lfs merge=lfs -text
+simulation filter=lfs diff=lfs merge=lfs -text
+system/Excuteble filter=lfs diff=lfs merge=lfs -text
+file filter=lfs diff=lfs merge=lfs -text
+/bone_Data filter=lfs diff=lfs merge=lfs -text
+/Users/longzijun/Downloads/MultiKinectSystem/Arm filter=lfs diff=lfs merge=lfs -text
+Arm[[:space:]]tracking[[:space:]]and[[:space:]]simulation[[:space:]]system/Excuteble[[:space:]]file[[:space:]]/bone_Data/sharedassets0.assets filter=lfs diff=lfs merge=lfs -text
+Arm[[:space:]]tracking[[:space:]]and[[:space:]]simulation[[:space:]]system/Excuteble[[:space:]]file[[:space:]]/bone_Data/sharedassets0.assets.resS filter=lfs diff=lfs merge=lfs -text
